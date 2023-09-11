@@ -348,12 +348,15 @@ class VideoViewer extends Component {
                                onClick={() => this.playPause()}
                                ref={this.setSplitViewRef}
                                leftSideContent={(<VideoPlayer muted ref={this.setLeftVideoRef} />)}
-                    >
+                               rightSideContent={(<VideoPlayer muted ref={this.setRightVideoRef} onTimeUpdate={(time) => this.onTimeUpdate(time)}
+                               onDurationSet={(duration) => this.onDurationSet(duration)}/>)}
 
+                    >
+{/* 
                         <VideoPlayer ref={this.setRightVideoRef}
                                      onTimeUpdate={(time) => this.onTimeUpdate(time)}
                                      onDurationSet={(duration) => this.onDurationSet(duration)}
-                        />
+                        /> */}
                         <div className={cx("big-play-button", {
                             "hidden": this.state.playing || this.state.position !== 0
                         })}

@@ -25,6 +25,10 @@ class SplitView extends Component {
         this.setSplitViewClipperRef = splitViewClipper => {
             this.splitViewClipper = splitViewClipper;
         };
+
+        this.setSplitViewClipperRefr = splitViewClipper => {
+            this.splitViewClipperr = splitViewClipper;
+        };
     }
 
     componentDidMount() {
@@ -93,6 +97,8 @@ class SplitView extends Component {
 
     setSplitPosition(position) {
         this.splitViewClipper.style.width = position+"%";
+        this.splitViewClipperr.style.width = position+"%";
+
     }
 
     focus() {
@@ -107,7 +113,10 @@ class SplitView extends Component {
                 <div className={cx("split-view-clipper", {"show-border": this.props.splitBorderVisible})} ref={(ref) => this.setSplitViewClipperRef(ref)}>
                     {this.props.leftSideContent}
                 </div>
-                {this.props.children}
+                <div className={cx("split-view-clipper", {"show-border": this.props.splitBorderVisible})} ref={(ref) => this.setSplitViewClipperRefr(ref)}>
+                    {this.props.rightSideContent}
+                </div>
+                {/* {this.props.children} */}
             </div>
         )
     }

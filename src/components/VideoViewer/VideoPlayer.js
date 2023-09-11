@@ -178,14 +178,16 @@ class VideoPlayer extends Component {
     }
 
     render() {
-        const width = parseInt(100 * this.state.zoom) + 'vw';
+        const width = parseInt(100 * this.state.zoom) / this.props.aspectRatio;
+        const height = parseInt(100 * this.state.zoom) * this.props.aspectRatio + '%'
         return (
             <video muted={this.props.muted} ref={this.setVideoRef}
                    tabIndex="-1"
                    style={{
-                       width: width,
-                       left: this.state.panHorizontal + 'px',
-                       top: this.state.panVertical + 'px'
+                       width: width > 50.0 ? '50%' : width < 0 ? '0%' : width + '%',
+                       height: height > 50.0 ? '50%' : height < 0 ? '0%' : height + '%',
+                    //    left: this.state.panHorizontal + 'px',
+                    //    top: this.state.panVertical + 'px'
                    }}
             >
             </video>

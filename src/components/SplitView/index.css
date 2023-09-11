@@ -6,6 +6,7 @@
     width: 100%;
     z-index: inherit;
     outline: none;
+    overflow: hidden;
 }
 
 .split-view-container:-webkit-full-screen {
@@ -14,28 +15,39 @@
 }
 
 .split-view-container > video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: auto;
+    display: inline-block;
+    margin-right: auto;
+    margin-left: auto;
+    /* position: absolute; */
+    /* top: 0;
+    left: 0; */
+    /* width: 100vw; */
+    /* height: auto; */
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .split-view-container:-webkit-full-screen > video {
     width: 100%;
     height: 100%;
+    object-fit: contain;
 }
 
 .split-view-container:-webkit-full-screen video {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .split-view-clipper {
+    display: inline-block;
     width: 50%;
-    position: absolute;
-    top: 0;
-    bottom: 0;
+    height: 100%;
+    max-width: 50%;
+    /* position: absolute; */
+    /* top: 0; */
+    /* bottom: 0; */
     overflow: hidden;
     z-index: 11;
 }
@@ -45,19 +57,26 @@
 }
 
 .split-view-clipper video {
-    position: absolute;
+    /* position: absolute;
     top: 0;
     left: 0;
     width: 100vw;
-    height: auto;
+    height: auto; */
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .split-view-container:-webkit-full-screen .split-view-clipper {
+    width: 50%;
     height: 100%;
+    max-width: 50%;
 }
 
 .split-view-container:-webkit-full-screen .split-view-clipper video {
+    width: 100%;
     height: 100%;
+    object-fit: contain;
 }
 
 .dragging {
